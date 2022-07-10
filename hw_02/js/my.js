@@ -1,9 +1,9 @@
-const currentYear = 2022;
+const CURRENT_YEAR = 2022;
 
-let firstName = prompt("Введіть своє ім'я");
-let lastName = prompt("Введіть своє прізвище");
-let birthYear = Number(prompt("Введіть свій рік народження"));
+const firstName = prompt("Введіть своє ім'я");
+const lastName = prompt("Введіть своє прізвище");
+const birthYear = Number(prompt("Введіть свій рік народження"));
 
-let age = currentYear - birthYear;
+let age = CURRENT_YEAR - birthYear;
 
 console.log("User Bio: " + firstName + " " + lastName + ", " + age + " years old;");
