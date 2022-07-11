@@ -109,11 +109,13 @@ switch (monthOfBirth) {
         break;
 }
 
-let isLeapYear = yearOfBirth % 4 == 0 || yearOfBirth % 100 != 0 && yearOfBirth % 400 == 0 ? "true" : "false"; 
+// let isLeapYear = yearOfBirth % 4 == 0 || yearOfBirth % 100 != 0 && yearOfBirth % 400 == 0 ? true : false; 
 
-if (isLeapYear) {
-    console.log("User Bio: " + firstName + " " + lastName + ", " + age + " years old " + "(leap year), " + zodiac + ";");
-}
-else {
-    console.log("User Bio: " + firstName + " " + lastName + ", " + age + " years old, " + zodiac + ";");
-}
+// if (isLeapYear) {
+//     console.log("User Bio: " + firstName + " " + lastName + ", " + age + " years old " + "(leap year), " + zodiac + ";");
+// }
+// else {
+//     console.log("User Bio: " + firstName + " " + lastName + ", " + age + " years old, " + zodiac + ";");
+// }
+
+ console.log("User Bio: " + firstName + " " + lastName + ", " + age + " years old " + (yearOfBirth % 4 == 0 || yearOfBirth % 100 != 0 && yearOfBirth % 400 == 0 ? "(leap year), " : ", ") + zodiac + ";");
