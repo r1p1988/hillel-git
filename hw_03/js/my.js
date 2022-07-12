@@ -10,6 +10,7 @@ let age = CURRENT_YEAR - yearOfBirth;
 
 let zodiac;
 let simbol;
+let isLeapYear = false;
 
 switch (monthOfBirth) {
     case 1:
@@ -134,4 +135,6 @@ switch (monthOfBirth) {
         break;
 }
 
- console.log("User Bio: " + firstName + " " + lastName + ", " + age + " years old " + (yearOfBirth % 4 == 0 || yearOfBirth % 100 != 0 && yearOfBirth % 400 == 0 ? "(leap year), " : ", ") + zodiac + " " + simbol + ";");
+isLeapYear = (yearOfBirth % 4 == 0 || yearOfBirth % 100 != 0 && yearOfBirth % 400 == 0);
+
+ console.log("User Bio: " + firstName + " " + lastName + ", " + age + " years old " + (isLeapYear ? "(leap year), " : ", ") + zodiac + " " + simbol + ";");
