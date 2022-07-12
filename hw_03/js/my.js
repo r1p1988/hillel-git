@@ -15,121 +15,121 @@ switch (monthOfBirth) {
     case 1:
         if (dateOfBirth < 20) {
             zodiac = "Capricorn";
-            simbol = "♑";
+            simbol = "\u2651";
         }
         else {
             zodiac = "Aquarius";
-            simbol = "♒";
+            simbol = "\u2652";
         }
         break;
     case 2:
         if (dateOfBirth < 19) {
             zodiac = "Aquarius";
-            simbol = "♒";
+            simbol = "\u2652";
         }
         else {
             zodiac = "Pisces";
-            simbol = "♓";
+            simbol = "\u2653";
         }
         break;
     case 3:
         if (dateOfBirth < 21) {
             zodiac = "Pisces";
-           simbol = "♓"; 
+           simbol = "\u2653"; 
         }
         else {
             zodiac = "Aries";
-            simbol = "♈";
+            simbol = "\u2648";
         }
         break;
     case 4:
         if (dateOfBirth < 20) {
             zodiac = "Aries";
-            simbol = "♈";   
+            simbol = "\u2648";   
         }
         else {
             zodiac = "Taurus";
-            simbol = "♌";
+            simbol = "\u2649";
         }
         break;
     case 5:
         if (dateOfBirth < 21) {
             zodiac = "Taurus";
-            simbol = "♉";
+            simbol = "\u2649";
         }
         else {
             zodiac = "Gemini";
-            simbol = "♊";
+            simbol = "\u264a";
         }
         break;
     case 6:
         if (dateOfBirth < 21) {
             zodiac = "Gemini";
-            simbol = "♊";  
+            simbol = "\u264a";  
         }
         else {
             zodiac = "Cancer";
-            simbol = "♋";
+            simbol = "\u264b";
         }
         break;
     case 7:
         if (dateOfBirth < 23) {
             zodiac = "Cancer";
-            simbol = "♋"; 
+            simbol = "\u264b"; 
         }
         else {
             zodiac = "Leo";
-            simbol = "♌";
+            simbol = "\u264c";
         }
         break;
     case 8:
         if (dateOfBirth < 23) {
             zodiac = "Leo";
-            simbol = "♌";
+            simbol = "\u264c";
         }
         else {
             zodiac = "Virgo";
-            simbol = "♍";
+            simbol = "\u264d";
         }
         break;
     case 9:
         if (dateOfBirth < 23) {
             zodiac = "Virgo";
-            simbol = "♍";
+            simbol = "\u264d";
         }
         else {
             zodiac = "Libra";
-            simbol = "♎";
+            simbol = "\u264e";
         }
         break;
     case 10:
         if (dateOfBirth < 23) {
             zodiac = "Libra";
-            simbol = "♎";
+            simbol = "\u264e";
         }
         else {
             zodiac = "Scorpio";
-            simbol = "♏";
+            simbol = "\u264f";
         }
         break;
     case 11:
         if (dateOfBirth < 22) {
             zodiac = "Scorpio";
-            simbol = "♏";
+            simbol = "\u264f";
         }
         else {
             zodiac = "Sagittarius";
-            simbol = "♐";
+            simbol = "\u2650";
         }
         break;
     case 12:
         if (dateOfBirth < 22) {
             zodiac = "Sagittarius";
-            simbol = "♐";
+            simbol = "\u2650";
         }
         else {
             zodiac = "Capricorn";
-            simbol = "♑";
+            simbol = "\u2651";
         }
         break;
 }
