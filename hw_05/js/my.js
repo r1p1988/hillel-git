@@ -1,19 +1,20 @@
-let transformedWord;
-let typeOfTransformation;
-let userWord;
-let sentance= "";
+let transformedWord,
+typeOfTransformation,
+userWord;
+let sentance = "";
+const countOfWords = 3;
 
-let value = confirm("Tell me three most important words 💚");
+let userAnswer = confirm("Tell me three most important words 💚");
 
-for (let i = 1; i <= 3; i++) {
-    if (value) {
-        userWord = prompt(`Enter word #${i}`);
+for (let wordNumber = 1; wordNumber <= countOfWords; wordNumber++) {
+    if (userAnswer) {
+        userWord = prompt(`Enter word #${wordNumber}`);
         while (userWord === null
             || !userWord
             || userWord.match(/\d/g)
         ) {
         
-            userWord = prompt(`Enter word #${i}`);
+            userWord = prompt(`Enter word #${wordNumber}`);
         }
         typeOfTransformation = prompt(`Choose type of transformation for "${userWord}": uppercase|lowercase|capitalize`, "uppercase");
         while (typeOfTransformation === null
@@ -29,35 +30,31 @@ for (let i = 1; i <= 3; i++) {
             case typeOfTransformation === "uppercase":
                 transformedWord = userWord.toUpperCase();
                 sentance += transformedWord;
-                console.log(`Word #${i}: ${userWord}
-Tranform type for word #${i}: ${typeOfTransformation}
-Transformed word #${i}: ${transformedWord}
+                console.log(`Word #${wordNumber}: ${userWord}
+Tranform type for word #${wordNumber}: ${typeOfTransformation}
+Transformed word #${wordNumber}: ${transformedWord}
 Sentance: ${sentance}`);
                 break;
             case typeOfTransformation === "lowercase":
                 transformedWord = userWord.toLowerCase();
                 sentance += transformedWord;
-                console.log(`Word #${i}: ${userWord}
-Tranform type for word #${i}: ${typeOfTransformation}
-Transformed word #${i}: ${transformedWord}
+                console.log(`Word #${wordNumber}: ${userWord}
+Tranform type for word #${wordNumber}: ${typeOfTransformation}
+Transformed word #${wordNumber}: ${transformedWord}
 Sentance: ${sentance}`);
                 break;
             case typeOfTransformation === "capitalize":
                 transformedWord = userWord.charAt(0).toUpperCase() + userWord.slice(1);
                 sentance += transformedWord;
-                console.log(`Word #${i}: ${userWord}
-Tranform type for word #${i}: ${typeOfTransformation}
-Transformed word #${i}: ${transformedWord}
+                console.log(`Word #${wordNumber}: ${userWord}
+Tranform type for word #${wordNumber}: ${typeOfTransformation}
+Transformed word #${wordNumber}: ${transformedWord}
 Sentance: ${sentance}!`);
                 break;
         }
 
-        if (i <= 2) {
-            sentance = sentance + " ";
-        }
-        else {
-            sentance = sentance + "!";
-        }
+        if (wordNumber <= 2) sentance = sentance + " ";
+        else sentance = sentance + "!";
         
     }
 }
