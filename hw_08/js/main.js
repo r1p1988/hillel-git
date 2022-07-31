@@ -3,8 +3,7 @@ let native = ['York','Of'];
 let destination = ['Poltava', 'In'];
 let rainbow = [];
 
-rainbow = hero.concat(native)
-    .concat(destination)
+rainbow = hero.concat(native, destination)
     .reverse();
 
 rainbow.unshift("Richard");
