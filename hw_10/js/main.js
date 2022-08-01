@@ -24,12 +24,7 @@ function getinfo(array, headerOfArray) {
     for (let i = 0; i < array.length; i++){
         let TDs = [];
             for (let j = 0; j < array[i].length; j++) {
-                if (Array.isArray(array[i][j])) {
-                    TDs.push(`<td>${array[i][j].join("; ")}</td>`); 
-                }
-                else {
-                 TDs.push(`<td>${array[i][j]}</td>`);   
-                } 
+                TDs.push(`<td>${Array.isArray(array[i][j]) ? array[i][j].join("; ") : array[i][j]}</td>`);
         }
         TRs.push(`<tr>${TDs.join("")}</tr>`);
         }
