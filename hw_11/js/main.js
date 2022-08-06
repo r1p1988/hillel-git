@@ -11,9 +11,9 @@ function getPrice(array, seasonFunc) {
 
     for (let i = 0; i < copiedProducts.length; i++) {
         if (Array.isArray(copiedProducts[i])) {
-            typeof seasonFunc === `function`
-                ? sumResult += seasonFunc(copiedProducts[i][1])
-                : sumResult += copiedProducts[i][1];
+            sumResult += typeof seasonFunc === `function`
+                ? seasonFunc(copiedProducts[i][1])
+                : copiedProducts[i][1];
         }
     }
     return sumResult;
