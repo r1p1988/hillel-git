@@ -11,12 +11,12 @@ const obj = {
     }
 } 
 
-const newObj = {};
 
-function convert(list) {
+const convert = list => {
+    let newObj = {};
     for (let key in list) {
         typeof list[key] === "object"
-            ? convert(list[key])
+            ? Object.assign(newObj, convert(list[key]))
             : newObj[key] = list[key];
     }
     return newObj;
