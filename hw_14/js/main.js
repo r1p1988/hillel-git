@@ -17,10 +17,13 @@ const vegetables = [
     }
 ];
 
+const capitalize = str => str[0].toUpperCase()+str.slice(1).toLowerCase();
+
 class Vegetable {
-    constructor(){
+    constructor(obj){
         this.type = `Vegetable`;
         this.seasonKoef = 1.3;
+        Object.assign(this, obj);
     }
 
     getPrice() {
@@ -30,37 +33,33 @@ class Vegetable {
         
     }
 
-    getInfo() {
-        return (this.season)
-            ? `Type: ${this.type}. SeasonKoef: ${this.seasonKoef}. Name: ${this.name}. Icon: ${this.icon}. Price: ${this.getPrice(this.price)}. Season: ${this.season}`
-            : `Type: ${this.type}. SeasonKoef: ${this.seasonKoef}. Name: ${this.name}. Icon: ${this.icon}. Price: ${this.price}`
+    // getInfo() {
+    //     return (this.season)
+    //         ? `Type: ${this.type}. SeasonKoef: ${this.seasonKoef}. Name: ${this.name}. Icon: ${this.icon}. Price: ${this.getPrice(this.price)}. Season: ${this.season}`
+    //         : `Type: ${this.type}. SeasonKoef: ${this.seasonKoef}. Name: ${this.name}. Icon: ${this.icon}. Price: ${this.price}`
         
-    }
+    // }
+
+getInfo(){
+        return Object.keys(this)
+                .map(key => {
+                    if(key===`price`){
+                        this[key] = this.getPrice(this[key]);
+                    }
+                    return key;
+                })
+                .map(key => `${capitalize(key)}: ${this[key]}`).join(`. `)
+        }
+
 }
 
-class Vegetables extends Vegetable{
-    constructor(name, icon, price, season) {
-        super();
-        this.name = name;
-        this.icon = icon;
-        this.price = price;
-        this.season = season;
 
-    }
-}
 
 
 let modifyVegetables = vegetables
-    .map(item => {
-        item = new Vegetables(item.name, item.icon, item.price, item.season);
-        item = `<li>${item.getInfo()}</li>`;
-        return item;
-    })
+    .map(item => new Vegetable(item))
+    .map(item => `<li>${item.getInfo()}</li>`)
     .join("")
 
-document.write(`
-    <ul>
-        ${modifyVegetables}
-        </ul>
-    `)
+document.write(`<ul>${modifyVegetables}</ul>`);
 
