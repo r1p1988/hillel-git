@@ -123,7 +123,7 @@ class User {
 	}
 
 	render() {
-		document.write(`
+	return	`
 <div class="user">
             <div class="user__info">
                 <div class="user__info--data">
@@ -138,9 +138,9 @@ class User {
                     <p>${this.role}</p>
                 </div>
             </div>
-			${this.renderCourses()}
+			${this.courses ? this.renderCourses() : ``}
         </div>
-`)
+`
 	}
 
 	renderCourses() {
@@ -199,11 +199,8 @@ let usersClass = users
 	.map(user => {
 		return ROLE_TYPES[user.role] ? ROLE_TYPES[user.role](user) : new User(user);
 	})
-	.forEach(user => user.render())
+	.map(user => user.render())
+	.join(``)
 
 	
-// document.write(`
-// <div class="users">
-//      ${usersClass}
-//     </div>
-// `)
+document.write(`<div class="users">${usersClass}</div>`)
