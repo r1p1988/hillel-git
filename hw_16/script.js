@@ -160,9 +160,9 @@ class Coffee{
         let ingredient =[]
         if (this.ingredients) {
             for (key in this.ingredients) {
-                let jey = key;
-                jey = key.replace(/\s/g, '__');
-                ingredient.push(`<p style="height: ${this.ingredients[key]}%" class="ingredient ${jey}">${key}</p>`)
+                // let jey = key;
+                // jey = key.replace(/\s/g, '__');
+                ingredient.push(`<p style="height: ${this.ingredients[key]}%" class="ingredient ${key.replaceAll(` `,`__`)}">${key}</p>`)
                 ingredient.join(",");
             }
         }
