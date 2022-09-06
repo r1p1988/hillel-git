@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+      }
+      .block {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        background: black;
+        left: 50%;
+        top: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid red;
+      }
+      .sit-down {
+        transition: all 0.2s ease-out;
+        transform: scale(1.25, 0.4);
+      }
+      .bounce {
+        transition: all 0.2s ease-out;
+        transform: translateY(-10px);
+      }
+      .title {
+        font-size: 24px;
+        color: white;
+        display: none;
+      }
+      .title-active {
+        display: inline;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="block" class="block">
+      <span id="title" class="title">БЕМС</span>
+    </div>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
