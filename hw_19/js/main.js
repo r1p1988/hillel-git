@@ -13,6 +13,8 @@ let maxLeft = body.clientWidth - block.clientWidth,
 block.style.top = block.offsetTop + "px";
 block.style.left = block.offsetLeft + "px";
 
+console.log()
+
 const EVENTS = {
     32: block => bounce(block),
     39: block => movingRight(block),
@@ -44,6 +46,7 @@ const movingDown = block => {
     } else {
         block.style.top = parseInt(block.style.top) + distance + "px";  
     }
+//    block.style.top = moving(block.style.top);
 }
 
 const movingUp = block => {
@@ -53,6 +56,7 @@ const movingUp = block => {
     } else {
         block.style.top = parseInt(block.style.top) - distance + "px";  
     }
+//    block.style.top = moving(block.style.top);
 }
 
 const movingLeft = block => {
@@ -62,6 +66,13 @@ const movingLeft = block => {
     } else {
         block.style.left = parseInt(block.style.left) - distance + "px";  
     }
+//     if (moving(block.style.left)) {
+//         debugger;
+//       block.style.left = moving(block.style.left);  
+//     }
+//    else {
+//         block.style.left = parseInt(block.style.left) - distance + "px";  
+//     }
 }
 
 const movingRight = block => {
@@ -71,9 +82,42 @@ const movingRight = block => {
     } else {
         block.style.left = parseInt(block.style.left) + distance + "px";  
     }
+    // if (moving(block.style.left)) { 
+    //   block.style.left = moving(block.style.left);  
+    // }
+    // else {
+    //   block.style.left = parseInt(block.style.left) + distance + "px";  
+    // }
+//    block.style.left = moving(block.style.left);
 }
 
 document.addEventListener(`keydown`, event => {
     activeBlock && EVENTS[event.keyCode] && EVENTS[event.keyCode](activeBlock);
 })
 
+
+// const moving = position => {
+//     position = parseInt(position);
+//     if (position + distance >= maxLeft
+//         || position + distance >= maxTop) {
+//         debugger;
+//         titleActive();
+//        return position = position - distance * 2 + `px`;  
+//     } else if (position - distance <= 0) {
+//         titleActive();
+//         return position = position + distance * 2 + `px`;  
+//     }
+    
+    // else {
+    //     return position = position + distance + "px";  
+    // }
+    
+    // if (position - distance <= 0) {
+    //     titleActive();
+    //     return position = position + distance * 2 + `px`;  
+    // }
+    // else {
+    //     return position = position - distance + "px";  
+    // }
+    
+// }
