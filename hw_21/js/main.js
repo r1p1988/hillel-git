@@ -44,10 +44,10 @@ getMoney
             do {
                 currency = prompt(`По якій валюті вивести баланс? 
 ${getUserKey(userData)}`);
-                if (currency === null) {
+               if (currency === null) {
                     return Promise.finally;
                 } else {
-                    currency = currency.toUpperCase();  
+                   currency = currency.toUpperCase();  
                 }
             }
             while (!userData[currency])
@@ -56,10 +56,21 @@ ${getUserKey(userData)}`);
         function () {
             do {
                 currency = prompt(`Вкажіть валюту для зняття готівки?
-${availableCurrency().join(", ")}`).toUpperCase();
+${availableCurrency().join(", ")}`);
+                if (currency === null) {
+                    return Promise.finally;
+                } else {
+                   currency = currency.toUpperCase();  
+                }
             }
             while (!getUserKeyPrompt(currency) || !getBankKeyPrompt(currency))
+            do {
                 sumOfCurrency = +prompt(`Вкажіть суму ${currency} для зняття?`);
+                if (sumOfCurrency === 0) {
+                    return Promise.finally;
+                }
+            }
+            while (isNaN(sumOfCurrency))
             if (sumOfCurrency > userData[currency] || sumOfCurrency > bankData[currency].max) {
                 console.log(`Введена сума більша за доступну. Максимальна сума зняття: ${maxSum(currency)} ${currency}`);
             } else if (sumOfCurrency < bankData[currency].min) {
