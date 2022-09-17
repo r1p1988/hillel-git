@@ -1,0 +1,58 @@
+.meet__form fieldset {
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+.meet__form label {
+    margin-bottom: 10px;
+}
+
+
+
+.room__calendar {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.room__calendar caption {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.room__calendar th,
+.room__calendar td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.meet {
+    background: #ffc107;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.meet h3 {
+    font-size: 14px;
+    margin: 0;
+}
+
+.meet p {
+    margin: 0;
+}
+
+.meet button {
+    margin: 5px 0 0 0;
+    font-size: 13px;
+    border: none;
+    padding: 3px 7px;
+    border-radius: 3px;
+    background: crimson;
+    color: white;
+    cursor: pointer;
+}
