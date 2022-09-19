@@ -29,87 +29,61 @@ const bankData = {
     }
 }
 
-let currency,
-    sumOfCurrency;
+const getMoney = () => new Promise((resolve, reject) => {
+    const userChoice = confirm(`Подивитися баланс карті?`);
+    userChoice ? resolve() : reject();
+});
 
-const getMoney = new Promise(
-        function (resolve, reject) {
-              confirm(`Подивитися баланс на карті?`) ? resolve() : reject();
-        }
-    )
-
-getMoney
+getMoney()
     .then(
         function () {
+            let currency;
+            let avaliableUserCurrencies = Object.keys(userData);
             do {
                 currency = prompt(`По якій валюті вивести баланс? 
-${getUserKey(userData)}`);
-               if (currency === null) {
-                    return Promise.finally;
-                } else {
-                   currency = currency.toUpperCase();  
-                }
+${avaliableUserCurrencies.join(`, `)}`, avaliableUserCurrencies[0]);
+              if(currency) currency = currency.replaceAll(` `,``).toUpperCase();
             }
-            while (!userData[currency])
+            while (!avaliableUserCurrencies.includes(currency))
             console.log(`Баланс становить: ${userData[currency]} ${currency}`);      
         },
         function () {
+            let avaliableUserCurrencies = Object.keys(userData);
+                let avaliableBankCurrencies = Object
+                .keys(bankData)
+                .filter(currency => bankData[currency].max>0);
+
+            let avaliableUserBank = avaliableBankCurrencies
+                .filter(currency => avaliableUserCurrencies.includes(currency));
+
+            let currency;
+            let price;
             do {
                 currency = prompt(`Вкажіть валюту для зняття готівки?
-${availableCurrency().join(", ")}`);
-                if (currency === null) {
-                    return Promise.finally;
-                } else {
-                   currency = currency.toUpperCase();  
-                }
+${avaliableUserBank.join(`, `)}`);
+                if (currency) currency = currency.replaceAll(` `, ``).toUpperCase();
+                
+                
             }
-            while (!getUserKeyPrompt(currency) || !getBankKeyPrompt(currency))
+            while (!avaliableUserBank.includes(currency))
+            let minAvaliablePrice = bankData[currency].min;
+            let maxAvaliablePrice = userData[currency];
+            if(userData[currency] > bankData[currency].max) max = bankData[currency].max;
             do {
-                sumOfCurrency = +prompt(`Вкажіть суму ${currency} для зняття?`);
-                if (sumOfCurrency === 0) {
-                    return Promise.finally;
-                }
+            price = prompt(`Введіть суму ${minAvaliablePrice}-${maxAvaliablePrice}`);
             }
-            while (isNaN(sumOfCurrency))
-            if (sumOfCurrency > userData[currency] || sumOfCurrency > bankData[currency].max) {
-                console.log(`Введена сума більша за доступну. Максимальна сума зняття: ${maxSum(currency)} ${currency}`);
-            } else if (sumOfCurrency < bankData[currency].min) {
-                console.log(`Введена сума менша за доступну. Мінімальна сума зняття: ${bankData[currency].min}`);
+            while (isNaN(price))
+            if(price > maxAvaliablePrice){
+                console.log(`Введена сума більша за доступну. Максимальна сума зняття: ${maxAvaliablePrice} ${currency} ${bankData[currency].img}`);
+            } else if(minAvaliablePrice > price){
+                console.log(`Введена сума менша за доступну. Мінімальна сума зняття: ${minAvaliablePrice} ${currency} ${bankData[currency].img}`);
+            } else{
+                console.log(`От Ваші гроші ${price} ${currency} ${bankData[currency].img}`);
             }
-            else {
-                console.log(`От Ваші гроші ${sumOfCurrency} ${currency} ${bankData[currency].img}`)   
-            }  
         }
-)
+    )
     .finally(
         function () {
             console.log(`Дякую, гарного дня 😊`);
         }
 )
-    
-const getBankKeyPrompt = (data) => Object.keys(bankData).includes(data);
-
-const getUserKeyPrompt = (data) => userData.hasOwnProperty(data);
-
-const getUserKey = (data) => Object.keys(data).join(", ");
-
-const maxSum = (data) => {
-     let maxSum;
-     if (bankData[currency].max > userData[currency]){
-         return maxSum = userData[currency];
-                } else {
-         return maxSum = bankData[currency].max;
-                }
-}
-
-const availableCurrency = () => {
-    let availableCurrency = [];
-    for (let key in userData) {
-        for (let item in bankData) {
-            if ((key === item) && (bankData[item].max !== 0)) {
-                availableCurrency.push(key);
-            }
-        }
-    }
-    return availableCurrency; 
-}
