@@ -3,13 +3,10 @@ let jokesCategories = document.querySelector("#jokesCategories"),
     jokes = [],
     newCategories = [];
 
-const getCategoriesFile = file => fetch(file)
+const getFile = file => fetch(file)
     .then(data => data.ok ? data.json() : Promise.reject(data.statusText));
 
-const getJokesFile = file => fetch(file)
-    .then(data => data.ok ? data.json() : Promise.reject(data.statusText));
-
-getCategoriesFile(`https://api.chucknorris.io/jokes/categories`)
+getFile(`https://api.chucknorris.io/jokes/categories`)
     .then(data => {
         data.map(categories => newCategories.push(`<option value="${categories}">${categories}</option>`))
         jokesCategories.innerHTML = newCategories.join(" ");
@@ -18,7 +15,7 @@ getCategoriesFile(`https://api.chucknorris.io/jokes/categories`)
 
 
 jokesCategories.addEventListener(`change`, () => {
-    getJokesFile(`https://api.chucknorris.io/jokes/random?category=${jokesCategories.value}`)
+    getFile(`https://api.chucknorris.io/jokes/random?category=${jokesCategories.value}`)
         .then(data => {
             jokes.push(`<li>
                 <p>Category: <b>${data.categories}</b></p>
