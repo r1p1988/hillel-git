@@ -24,7 +24,6 @@ const renderCar = (item) => {
   carImg.attr(`alt`, item.title);
 
   carImgTitle.html(item.title);
-  // carImgTitle.css(`color`, item.color);
 };
 
 $.ajax({
