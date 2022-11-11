@@ -1,0 +1,32 @@
+.list-block {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  align-items: center;
+  border: 2px solid black;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.list-block-before {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 70px;
+  align-items: center;
+  border: 2px solid black;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.to-do_container {
+  display: flex;
+}
+
+button {
+  margin: 10px;
+}
+
+ul {
+  padding: 0;
+}
